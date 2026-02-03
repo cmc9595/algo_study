@@ -2,15 +2,8 @@ import sys
 input = sys.stdin.readline
 N, M = map(int, input().split())
 
-# 공백이 있어도 공백을 제거하고 각 문자를 개별적으로 처리
-def parse_line(line):
-    line = line.strip()
-    # 공백을 모두 제거하고 각 문자를 개별적으로 처리
-    line_without_spaces = line.replace(' ', '')
-    return list(map(int, list(line_without_spaces)))
-
-before = [parse_line(input()) for _ in range(N)]
-after = [parse_line(input()) for _ in range(N)]
+before = [list(map(int, input().strip())) for _ in range(N)]
+after = [list(map(int, input().strip())) for _ in range(N)]
 
 def is_same(a, b):
     if any(before[i][j]!=after[i][j] for i in range(N) for j in range(M)):
